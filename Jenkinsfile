@@ -1,3 +1,4 @@
+@Library('test_lib') _
 pipeline{
     agent any
     stages{
@@ -9,7 +10,9 @@ pipeline{
         }
         stage("Build"){
             steps{
-                echo "========Building========"
+                   script{
+                       buildJar()
+                   }
             }
             
         }
